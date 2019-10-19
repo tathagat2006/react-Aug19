@@ -22,8 +22,16 @@ class App extends React.Component {
   render() {
     return (
       <div className='parent'>
-        <div>This is our homepage</div>
-        <div>Hello world!!</div>
+        {
+          this.state.users.map(user => {
+            return (
+              <div>
+                <h1>Name: {user.name}</h1>
+                <h4>Email:{user.email} </h4>
+              </div>
+            )
+          })
+        }
       </div >
     )
   }
