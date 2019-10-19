@@ -28,6 +28,12 @@ class Input extends React.Component {
         }
     }
 
+    // handleChange = function (event) {
+    //     this.setState({
+    //         [event.target.name]: event.target.value
+    //     }, () => console.log(this.state))
+    // }
+
     handleClick = () => {
         this.setState({
             list: [...this.state.list, {
