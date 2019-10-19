@@ -3,14 +3,15 @@ import React from 'react'
 const List = (props) => (
     <div>
         {
-            props.data.map(item => {
+            props.items.map(item => {
                 return (
 
-                    <li className='list-group-item'>{item.userInput}</li>
+                    <li style={{ margin: "2vh" }} className='list-group-item'>{item.name}</li>
 
                 )
             })
         }
+
     </div>
 )
 

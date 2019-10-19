@@ -1,16 +1,40 @@
 import React from 'react'
 import List from '../List/list.component'
+import Button from '../Button/button.component'
 
 class Input extends React.Component {
     constructor() {
         super()
         this.state = {
-            userInput: [
+            list: [
                 {
-                    userInput: ""
+                    id: 0,
+                    name: "item1",
+                },
+                {
+                    id: 1,
+                    name: "item2",
+                },
+                {
+                    id: 2,
+                    name: "item3",
+                },
+                {
+                    id: 3,
+                    name: "item4",
                 }
-            ]
+            ],
+            userInput: ""
         }
+    }
+
+    handleClick = () => {
+        this.setState({
+            list: [...this.state.list, {
+                id: this.state.list.length - 1,
+                name: this.state.userInput
+            }]
+        })
     }
 
     handleChange = (event) => {
@@ -25,8 +49,9 @@ class Input extends React.Component {
                 <form>
                     <input type='text' name='userInput' className='form-control input' onChange={this.handleChange} />
                 </form>
-                <ul className='list-group'>
-                    <List data={this.state.userInput} />
+                <Button handleClick={this.handleClick} />
+                <ul className='list-group' style={{ margin: "3vh" }}>
+                    <List items={this.state.list} />
                 </ul>
             </div>
         )
