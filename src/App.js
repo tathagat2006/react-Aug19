@@ -2,40 +2,54 @@ import React from 'react';
 import './App.css';
 
 import axios from 'axios'
+import Input from './components/Input/input.component'
 
 class App extends React.Component {
   constructor() {
     super()
-    this.state = {
-      users: []
-    }
-  }
-
-  async componentWillMount() {
-    const response = await axios.get('https://jsonplaceholder.typicode.com/users')
-    // console.log(response)
-    this.setState({
-      users: response.data
-    })
   }
 
   render() {
     return (
-      <div className='parent'>
-        {
-          this.state.users.map(user => {
-            return (
-              <div>
-                <h1>Name: {user.name}</h1>
-                <h4>Email:{user.email} </h4>
-              </div>
-            )
-          })
-        }
-      </div >
+      <Input />
     )
   }
 }
+
+// Understanding Lifecycles and api hits.
+// class App extends React.Component {
+//   constructor() {
+//     super()
+//     this.state = {
+//       users: []
+//     }
+//   }
+
+//   async componentWillMount() {
+//     const response = await axios.get('https://jsonplaceholder.typicode.com/users')
+//     // console.log(response)
+//     this.setState({
+//       users: response.data
+//     })
+//   }
+
+//   render() {
+//     return (
+//       <div className='parent'>
+//         {
+//           this.state.users.map(user => {
+//             return (
+//               <div>
+//                 <h1>Name: {user.name}</h1>
+//                 <h4>Email:{user.email} </h4>
+//               </div>
+//             )
+//           })
+//         }
+//       </div >
+//     )
+//   }
+// }
 
 // const App = () => (
 //   <div className="App">
