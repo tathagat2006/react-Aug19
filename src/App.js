@@ -13,7 +13,10 @@ class App extends React.Component {
 
   async componentWillMount() {
     const response = await axios.get('https://jsonplaceholder.typicode.com/users')
-    console.log(response)
+    // console.log(response)
+    this.setState({
+      users: response.data
+    })
   }
 
   render() {
