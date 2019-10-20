@@ -25,3 +25,7 @@
   width:50vh;
   margin:5vh;
 }
+
+.striked {
+  text-decoration: line-through
+}
