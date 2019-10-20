@@ -28,6 +28,13 @@ class Input extends React.Component {
         }
     }
 
+    handleDelete = (todo) => {
+        let todolist = this.state.list.filter((item) => todo.id !== item.id)
+        this.setState({
+            list: todolist
+        })
+    }
+
     // handleChange = function (event) {
     //     this.setState({
     //         [event.target.name]: event.target.value
@@ -57,7 +64,7 @@ class Input extends React.Component {
                 </form>
                 <Button handleClick={this.handleClick} />
                 <ul className='list-group' style={{ margin: "3vh" }}>
-                    <List items={this.state.list} />
+                    <List items={this.state.list} handleDelete={this.handleDelete} />
                 </ul>
             </div>
         )
